@@ -1,9 +1,4 @@
-# Function parameter handle or paremeter error control
-
-- Example 1: Just checking if all arguments were passed / defined.
-
-```
-
+// Example 1: Just checking if all arguments were passed / defined and console warn if arguments were not passed/not defined.
 const required = (name) => {
   console.warn(`Parameter is required and its shuld be type of ${name}`);
 };
@@ -12,12 +7,7 @@ function add(a = required("number"), b = required("number")) {
   return a + b;
 }
 
-```
-
-#### Or
-
-```
-
+// Or
 function add(number1, number2) {
   if (arguments.length < 2) {
     console.warn("Missing arguments");
@@ -25,12 +15,7 @@ function add(number1, number2) {
   return number1 + number2;
 }
 
-```
-
-#### Or
-
-```
-
+// Or
 function add(number1, number2) {
   if (typeof number1 === "undefined") {
     console.warn("First argument is missing / not defined");
@@ -41,12 +26,7 @@ function add(number1, number2) {
   return number1 + number2;
 }
 
-```
-
-- Example 2: make sure each argument is correct type.
-
-```
-
+// Example 2: make sure each argument is correct type.
 function add(number1, number2) {
   if (isNaN(number1)) {
     console.warn("First argument is not a number");
@@ -57,12 +37,7 @@ function add(number1, number2) {
   return number1 + number2;
 }
 
-```
-
-- Example 3: make sure each argument is defined and of correct type
-
-```
-
+// Example 3: making sure each argument is defined and of correct type
 function add(number1, number2) {
   if (typeof number1 === "undefined" || isNaN(number1)) {
     console.warn("First argument is missing / not defined");
@@ -74,12 +49,7 @@ function add(number1, number2) {
   return number1 + number2;
 }
 
-```
-
-- Example 4: create extarnal function for make sure each argument is defined and of correct type
-
-```
-
+// Example 4: create extarnal function for make sure each argument is defined and of correct type
 function handleError() {
   for (let i = 0; i < arguments.length || arguments.length == 0; i++) {
     if (arguments[i] === undefined) {
@@ -92,5 +62,3 @@ function handleError() {
   }
   return "noError";
 }
-
-```
